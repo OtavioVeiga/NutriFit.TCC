@@ -11,7 +11,7 @@ public class Conexão {
 
     public static void initialize() {
         try {
-            FileInputStream serviceAccount = new FileInputStream("bdd-tcc-firebase-adminsdk-pzbgn-790d3603b8.json");
+            FileInputStream serviceAccount = new FileInputStream("bdd-tcc.json");
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
