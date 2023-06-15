@@ -1,8 +1,9 @@
-package nutrifit;
+package Firebase;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class Conexão {
                     .build();
 
             FirebaseApp.initializeApp(options);
-            
+
             System.out.println("Firebase inicializado com sucesso!");
         } catch (FileNotFoundException e) {
             System.err.println("Arquivo de chave não encontrado: " + e.getMessage());
