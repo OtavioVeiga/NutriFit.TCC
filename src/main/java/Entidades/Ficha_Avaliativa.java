@@ -62,19 +62,23 @@ public class Ficha_Avaliativa {
     }
 
     public void salvar() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference fichaRef = database.getReference("fichas_avaliativas").child(id);
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference fichaRef = database.getReference("fichas_avaliativas").child(id);
 
-        Map<String, Object> fichaValues = new HashMap<>();
-        fichaValues.put("id", id);
-        fichaValues.put("alunoId", alunoId);
-        fichaValues.put("altura", altura);
-        fichaValues.put("peso", peso);
-        fichaValues.put("data_avaliacao", dataAvaliacao);
-        fichaValues.put("data_reavaliacao", dataReavaliacao);
+    Map<String, Object> fichaValues = new HashMap<>();
+    fichaValues.put("id", id);
+    fichaValues.put("alunoId", alunoId);
+    fichaValues.put("altura", altura);
+    fichaValues.put("peso", peso);
+    fichaValues.put("data_avaliacao", dataAvaliacao);
+    fichaValues.put("data_reavaliacao", dataReavaliacao);
 
-        fichaRef.setValue(fichaValues)
-                .addOnSuccessListener(aVoid -> System.out.println("Ficha avaliativa salva com sucesso!"))
-                .addOnFailureListener(error -> System.err.println("Erro ao salvar ficha avaliativa: " + error.getMessage()));
-    }
+    fichaRef.setValue(fichaValues, (databaseError, databaseReference) -> {
+        if (databaseError != null) {
+            System.err.println("Erro ao salvar ficha avaliativa: " + databaseError.getMessage());
+        } else {
+            System.out.println("Ficha avaliativa salva com sucesso!");
+        }
+    });
+}
 }

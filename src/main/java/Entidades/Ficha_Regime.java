@@ -56,17 +56,23 @@ public class Ficha_Regime {
     }
 
     public void salvar() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference fichaRef = database.getReference("fichas_regime").child(id);
+    DatabaseReference fichaRef = FirebaseDatabase.getInstance()
+            .getReference("fichas_regime")
+            .child(id);
 
-        Map<String, Object> fichaValues = new HashMap<>();
-        fichaValues.put("id", id);
-        fichaValues.put("alunoId", alunoId);
-        fichaValues.put("peso", peso);
-        fichaValues.put("idade", idade);
+    Map<String, Object> fichaValues = new HashMap<>();
+    fichaValues.put("id", id);
+    fichaValues.put("alunoId", alunoId);
+    fichaValues.put("peso", peso);
+    fichaValues.put("idade", idade);
 
-        fichaRef.setValue(fichaValues)
-                .addOnSuccessListener(aVoid -> System.out.println("Ficha de regime salva com sucesso!"))
-                .addOnFailureListener(error -> System.err.println("Erro ao salvar ficha de regime: " + error.getMessage()));
-    }
+    fichaRef.setValue(fichaValues, (databaseError, databaseReference) -> {
+        if (databaseError != null) {
+            System.err.println("Erro ao salvar ficha de regime: " + databaseError.getMessage());
+        } else {
+            System.out.println("Ficha de regime salva com sucesso!");
+        }
+    });
+}
+
 }

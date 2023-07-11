@@ -16,6 +16,7 @@ public class Conexão {
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .setDatabaseUrl("https://console.firebase.google.com/u/0/project/bdd-tcc/database/bdd-tcc-default-rtdb/data/~2F?hl=pt-br")
                     .build();
 
             FirebaseApp.initializeApp(options);

@@ -58,17 +58,22 @@ public class Personal {
     }
 
     public void salvar() {
-        DatabaseReference personalRef = FirebaseDatabase.getInstance()
-                .getReference("Personal")
-                .child(id);
+    DatabaseReference personalRef = FirebaseDatabase.getInstance()
+            .getReference("Personal")
+            .child(id);
 
-        Map<String, Object> personalValues = new HashMap<>();
-        personalValues.put("nome", nome);
-        personalValues.put("cpf", cpf);
-        personalValues.put("idade", idade);
+    Map<String, Object> personalValues = new HashMap<>();
+    personalValues.put("id", id);
+    personalValues.put("nome", nome);
+    personalValues.put("cpf", cpf);
+    personalValues.put("idade", idade);
 
-        personalRef.setValue(personalValues)
-                .addOnSuccessListener(aVoid -> System.out.println("Personal salvo com sucesso!"))
-                .addOnFailureListener(error -> System.err.println("Erro ao salvar Personal: " + error.getMessage()));
-    }
+    personalRef.setValue(personalValues, (databaseError, databaseReference) -> {
+        if (databaseError != null) {
+            System.err.println("Erro ao salvar Personal: " + databaseError.getMessage());
+        } else {
+            System.out.println("Personal salvo com sucesso!");
+        }
+    });
+}
 }

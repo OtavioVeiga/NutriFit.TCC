@@ -87,20 +87,25 @@ public class Aluno {
     }
 
     public void salvar() {
-        DatabaseReference alunoRef = FirebaseDatabase.getInstance()
-                .getReference("alunos")
-                .child(id);
+    DatabaseReference alunoRef = FirebaseDatabase.getInstance()
+            .getReference("alunos")
+            .child(id);
 
-        Map<String, Object> alunoValues = new HashMap<>();
-        alunoValues.put("nome", nome);
-        alunoValues.put("cpf", cpf);
-        alunoValues.put("telefone", telefone);
-        alunoValues.put("idade", idade);
-        alunoValues.put("altura", altura);
-        alunoValues.put("peso", peso);
+    Map<String, Object> alunoValues = new HashMap<>();
+    alunoValues.put("nome", nome);
+    alunoValues.put("cpf", cpf);
+    alunoValues.put("telefone", telefone);
+    alunoValues.put("idade", idade);
+    alunoValues.put("altura", altura);
+    alunoValues.put("peso", peso);
 
-        alunoRef.setValue(alunoValues)
-                .addOnSuccessListener(aVoid -> System.out.println("Aluno salvo com sucesso!"))
-                .addOnFailureListener(error -> System.err.println("Erro ao salvar aluno: " + error.getMessage()));
-    }
+    alunoRef.setValue(alunoValues, (databaseError, databaseReference) -> {
+        if (databaseError != null) {
+            System.err.println("Erro ao salvar aluno: " + databaseError.getMessage());
+        } else {
+            System.out.println("Aluno salvo com sucesso!");
+        }
+    });
+}
+
 }
