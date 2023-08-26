@@ -52,10 +52,14 @@ public class Ficha_Avaliativa {
     public String getDataAvaliacao() {
         return dataAvaliacao;
     }
-
+    
     public void setDataAvaliacao(String dataAvaliacao) {
         this.dataAvaliacao = dataAvaliacao;
-    }
+}
+    
+    public void setDataReavaliacao(String dataReavaliacao) {
+        this.dataReavaliacao = dataReavaliacao;
+}
 
     public String getDataReavaliacao() {
         return dataReavaliacao;
