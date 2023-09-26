@@ -174,6 +174,9 @@
           <Color id="Hand Cursor"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cancelar_btnActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
           <GridBagConstraints gridX="2" gridY="11" gridWidth="6" gridHeight="1" fill="0" ipadX="62" ipadY="9" insetsTop="60" insetsLeft="60" insetsBottom="48" insetsRight="94" anchor="18" weightX="0.0" weightY="0.0"/>

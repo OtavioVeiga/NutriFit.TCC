@@ -2,6 +2,7 @@ package nutrifit.view;
 
 import Entidades.Personal;
 import static Firebase.Conexão.initialize;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -160,6 +161,11 @@ public class CadastroView extends javax.swing.JFrame {
         Cancelar_btn.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         Cancelar_btn.setText("Cancelar");
         Cancelar_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Cancelar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancelar_btnActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 11;
@@ -230,6 +236,11 @@ public class CadastroView extends javax.swing.JFrame {
         Personal personal = new Personal();
         personal.setNome(Nome.getText());
         personal.setCpf(cpf.getText());
+        personal.setEmail(Email.getText());
+        
+        
+        String senhaCripto = BCrypt.withDefaults().hashToString(12, Senha.getPassword());
+        personal.setSenha(senhaCripto);
 
         DatabaseReference personalRef = FirebaseDatabase.getInstance().getReference("Personal");
         personalRef.push().setValue(personal, new DatabaseReference.CompletionListener() {
@@ -240,11 +251,23 @@ public class CadastroView extends javax.swing.JFrame {
                 } else {
                     System.out.println("Personal cadastrado com sucesso!");
                 }
+                
+                Nome.setText("");
+                cpf.setText("");
+                Email.setText("");
+                Senha.setText("");
+                ConfirmaSenha.setText("");
+
+                JOptionPane.showMessageDialog(null, "Personal cadastrado com sucesso!", "Cadastro Concluído", JOptionPane.INFORMATION_MESSAGE);
             }
         });
     } 
 
     }//GEN-LAST:event_Cadastrar_btnActionPerformed
+
+    private void Cancelar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancelar_btnActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_Cancelar_btnActionPerformed
 
     
     public static void main(String args[]) {

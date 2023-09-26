@@ -11,15 +11,18 @@ public class Aluno {
     private String nome;
     private String cpf;
     private String telefone;
-    private int idade;
+    private String idade;
     private String altura;
     private String peso;
+    private String email;
+    private String senha;
+
 
     public Aluno() {
         
     }
 
-    public Aluno(String id, String nome, String cpf, String telefone, int idade, String altura, String peso) {
+    public Aluno(String id, String nome, String cpf, String telefone, String idade, String altura, String peso) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -27,6 +30,24 @@ public class Aluno {
         this.idade = idade;
         this.altura = altura;
         this.peso = peso;
+        this.senha = senha;
+        this.email = email;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
 
@@ -62,11 +83,11 @@ public class Aluno {
         this.telefone = telefone;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 
@@ -98,6 +119,8 @@ public class Aluno {
     alunoValues.put("idade", idade);
     alunoValues.put("altura", altura);
     alunoValues.put("peso", peso);
+    alunoValues.put("senha", senha);
+    alunoValues.put("email",email );
 
     alunoRef.setValue(alunoValues, (databaseError, databaseReference) -> {
         if (databaseError != null) {

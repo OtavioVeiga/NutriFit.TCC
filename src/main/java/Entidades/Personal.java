@@ -11,17 +11,27 @@ public class Personal {
     private String id;
     private String nome;
     private String cpf;
-    private int idade;
+    private String Senha;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    private String email;
 
     public Personal() {
         
     }
 
-    public Personal(String id, String nome, String cpf, int idade) {
+    public Personal(String id, String nome, String cpf,String senha, String email) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.idade = idade;
+        this.Senha = senha;
+        this.email = email;
     }
 
 
@@ -49,12 +59,12 @@ public class Personal {
         this.cpf = cpf;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getSenha() {
+        return Senha;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setSenha(String Senha) {
+        this.Senha = Senha;
     }
 
     public void salvar() {
@@ -66,7 +76,8 @@ public class Personal {
     personalValues.put("id", id);
     personalValues.put("nome", nome);
     personalValues.put("cpf", cpf);
-    personalValues.put("idade", idade);
+    personalValues.put("Senha", Senha);
+    personalValues.put("email", email);
 
     personalRef.setValue(personalValues, (databaseError, databaseReference) -> {
         if (databaseError != null) {

@@ -1,7 +1,7 @@
 package nutrifit;
 
 
-import nutrifit.view.CadastroView;
+import nutrifit.view.LoginView;
 
 public class NutriFit {
 
@@ -15,9 +15,9 @@ public class NutriFit {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-        new CadastroView ().setVisible(true);
+        new LoginView ().setVisible(true);
     }
 }

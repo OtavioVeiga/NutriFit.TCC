@@ -166,7 +166,7 @@ public class LoginView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Sair_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sair_btnActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_Sair_btnActionPerformed
 
     private void Cadastro_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastro_btnActionPerformed
@@ -176,16 +176,14 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_Cadastro_btnActionPerformed
 
     private void CadastroAluno_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroAluno_btnActionPerformed
-        // TODO add your handling code here:
+        CadastroAluno telaAluno = new CadastroAluno();
+        telaAluno.setVisible(true);
     }//GEN-LAST:event_CadastroAluno_btnActionPerformed
 
     private void Entrar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Entrar_btnActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_Entrar_btnActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         
         try {
