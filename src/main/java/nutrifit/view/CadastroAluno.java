@@ -17,7 +17,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     
     public CadastroAluno() {
         initComponents();
-        
+        setLocationRelativeTo(null);
     }
 
     
@@ -45,8 +45,8 @@ public class CadastroAluno extends javax.swing.JFrame {
         Altura = new javax.swing.JTextField();
         Telefone = new javax.swing.JTextField();
         Idade = new javax.swing.JTextField();
-        Cancelar_Aluno = new javax.swing.JToggleButton();
-        Cadastro_AlunoBT = new javax.swing.JToggleButton();
+        CancelarAlunoBT = new javax.swing.JButton();
+        CadastroAlunoBT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -252,48 +252,53 @@ public class CadastroAluno extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(11, 100, 0, 26);
         getContentPane().add(Idade, gridBagConstraints);
 
-        Cancelar_Aluno.setBackground(new java.awt.Color(153, 153, 153));
-        Cancelar_Aluno.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        Cancelar_Aluno.setText("Cancelar");
-        Cancelar_Aluno.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Cancelar_Aluno.addActionListener(new java.awt.event.ActionListener() {
+        CancelarAlunoBT.setBackground(new java.awt.Color(153, 153, 153));
+        CancelarAlunoBT.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        CancelarAlunoBT.setText("Cancelar");
+        CancelarAlunoBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CancelarAlunoBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cancelar_AlunoActionPerformed(evt);
+                CancelarAlunoBTActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.ipadx = 72;
-        gridBagConstraints.ipady = 9;
+        gridBagConstraints.ipadx = 99;
+        gridBagConstraints.ipady = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(60, 130, 36, 0);
-        getContentPane().add(Cancelar_Aluno, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(60, 80, 36, 0);
+        getContentPane().add(CancelarAlunoBT, gridBagConstraints);
 
-        Cadastro_AlunoBT.setBackground(new java.awt.Color(153, 153, 153));
-        Cadastro_AlunoBT.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        Cadastro_AlunoBT.setText("Cadastrar Aluno");
-        Cadastro_AlunoBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Cadastro_AlunoBT.addActionListener(new java.awt.event.ActionListener() {
+        CadastroAlunoBT.setBackground(new java.awt.Color(153, 153, 153));
+        CadastroAlunoBT.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        CadastroAlunoBT.setText("Cadastrar Aluno");
+        CadastroAlunoBT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CadastroAlunoBT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cadastro_AlunoBTActionPerformed(evt);
+                CadastroAlunoBTActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 15;
         gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.ipadx = 1;
-        gridBagConstraints.ipady = 9;
+        gridBagConstraints.ipadx = 43;
+        gridBagConstraints.ipady = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(60, 20, 36, 0);
-        getContentPane().add(Cadastro_AlunoBT, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(60, 30, 36, 0);
+        getContentPane().add(CadastroAlunoBT, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Cadastro_AlunoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastro_AlunoBTActionPerformed
+    private void CancelarAlunoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarAlunoBTActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_CancelarAlunoBTActionPerformed
+
+    private void CadastroAlunoBTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroAlunoBTActionPerformed
+        
         if (camposValidos()) {
             Aluno aluno = new Aluno();
             aluno.setAltura(Altura.getText());
@@ -315,7 +320,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                     } else {
                         System.out.println("Aluno cadastrado com sucesso!");
                     }
-                    
+
                     Nome_Aluno.setText("");
                     Cpf_Aluno.setText("");
                     Email_Aluno.setText("");
@@ -330,11 +335,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                 }
             });
         }
-    }//GEN-LAST:event_Cadastro_AlunoBTActionPerformed
-
-    private void Cancelar_AlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancelar_AlunoActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_Cancelar_AlunoActionPerformed
+    }//GEN-LAST:event_CadastroAlunoBTActionPerformed
     
     
     private boolean camposValidos() {
@@ -378,8 +379,8 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Altura;
-    private javax.swing.JToggleButton Cadastro_AlunoBT;
-    private javax.swing.JToggleButton Cancelar_Aluno;
+    private javax.swing.JButton CadastroAlunoBT;
+    private javax.swing.JButton CancelarAlunoBT;
     private javax.swing.JPasswordField ConfirmeSenha_Aluno;
     private javax.swing.JTextField Cpf_Aluno;
     private javax.swing.JTextField Email_Aluno;

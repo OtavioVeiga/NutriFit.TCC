@@ -4,7 +4,7 @@ package nutrifit;
 import nutrifit.view.LoginView;
 
 public class NutriFit {
-
+     
     public static void main(String[] args) {
         
         try {

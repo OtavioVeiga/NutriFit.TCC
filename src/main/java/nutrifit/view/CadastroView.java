@@ -1,7 +1,6 @@
 package nutrifit.view;
 
 import Entidades.Personal;
-import static Firebase.Conexão.initialize;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,7 +14,6 @@ public class CadastroView extends javax.swing.JFrame {
     public CadastroView() {
         initComponents();
         
-        initialize();
     }
 
    
@@ -35,8 +33,8 @@ public class CadastroView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        Cancelar_btn = new javax.swing.JToggleButton();
-        Cadastrar_btn = new javax.swing.JToggleButton();
+        Cadastrar_btn = new javax.swing.JButton();
+        Cancelar_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -48,7 +46,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 136;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(61, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(61, 25, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);
 
         ConfirmaSenha.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
@@ -59,7 +57,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 226;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 25, 0, 0);
         getContentPane().add(ConfirmaSenha, gridBagConstraints);
 
         Senha.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
@@ -70,7 +68,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 226;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 25, 0, 0);
         getContentPane().add(Senha, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Microsoft YaHei", 1, 36)); // NOI18N
@@ -81,7 +79,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 180, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(22, 185, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
@@ -91,7 +89,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.ipadx = 65;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 25, 0, 0);
         getContentPane().add(jLabel3, gridBagConstraints);
 
         Nome.setFont(new java.awt.Font("Microsoft YaHei", 0, 14)); // NOI18N
@@ -102,7 +100,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 226;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 25, 0, 0);
         getContentPane().add(Nome, gridBagConstraints);
 
         cpf.setFont(new java.awt.Font("Microsoft YaHei", 0, 14)); // NOI18N
@@ -113,7 +111,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 226;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(13, 25, 0, 0);
         getContentPane().add(cpf, gridBagConstraints);
 
         Email.setFont(new java.awt.Font("Microsoft YaHei", 0, 14)); // NOI18N
@@ -124,7 +122,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 226;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(11, 25, 0, 0);
         getContentPane().add(Email, gridBagConstraints);
 
         jLabel4.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
@@ -134,7 +132,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.ipadx = 136;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(8, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(8, 25, 0, 0);
         getContentPane().add(jLabel4, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
@@ -144,7 +142,7 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.ipadx = 153;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 25, 0, 0);
         getContentPane().add(jLabel5, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
@@ -154,27 +152,8 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 135;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 20, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 25, 0, 0);
         getContentPane().add(jLabel6, gridBagConstraints);
-
-        Cancelar_btn.setBackground(new java.awt.Color(153, 153, 153));
-        Cancelar_btn.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        Cancelar_btn.setText("Cancelar");
-        Cancelar_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Cancelar_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cancelar_btnActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.ipadx = 62;
-        gridBagConstraints.ipady = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(60, 60, 48, 94);
-        getContentPane().add(Cancelar_btn, gridBagConstraints);
 
         Cadastrar_btn.setBackground(new java.awt.Color(153, 153, 153));
         Cadastrar_btn.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
@@ -192,8 +171,27 @@ public class CadastroView extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 52;
         gridBagConstraints.ipady = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(60, 40, 48, 0);
+        gridBagConstraints.insets = new java.awt.Insets(62, 40, 48, 0);
         getContentPane().add(Cadastrar_btn, gridBagConstraints);
+
+        Cancelar_btn.setBackground(new java.awt.Color(153, 153, 153));
+        Cancelar_btn.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        Cancelar_btn.setText("Cancelar");
+        Cancelar_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Cancelar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cancelar_btnActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.ipadx = 62;
+        gridBagConstraints.ipady = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(62, 80, 48, 74);
+        getContentPane().add(Cancelar_btn, gridBagConstraints);
 
         pack();
         setLocationRelativeTo(null);
@@ -231,38 +229,36 @@ public class CadastroView extends javax.swing.JFrame {
     return true;
      }
     private void Cadastrar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar_btnActionPerformed
-           
+       
         if (camposSaoValidos()) {
-        Personal personal = new Personal();
-        personal.setNome(Nome.getText());
-        personal.setCpf(cpf.getText());
-        personal.setEmail(Email.getText());
-        
-        
-        String senhaCripto = BCrypt.withDefaults().hashToString(12, Senha.getPassword());
-        personal.setSenha(senhaCripto);
+            Personal personal = new Personal();
+            personal.setNome(Nome.getText());
+            personal.setCpf(cpf.getText());
+            personal.setEmail(Email.getText());
 
-        DatabaseReference personalRef = FirebaseDatabase.getInstance().getReference("Personal");
-        personalRef.push().setValue(personal, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(DatabaseError error, DatabaseReference ref) {
-                if (error != null) {
-                    System.err.println("Erro ao cadastrar Personal: " + error.getMessage());
-                } else {
-                    System.out.println("Personal cadastrado com sucesso!");
+            String senhaCript = BCrypt.withDefaults().hashToString(12, Senha.getPassword());
+            personal.setSenha(senhaCript);
+
+            DatabaseReference personalRef = FirebaseDatabase.getInstance().getReference("Personal");
+            personalRef.push().setValue(personal, new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError error, DatabaseReference ref) {
+                    if (error != null) {
+                        System.err.println("Erro ao cadastrar Personal: " + error.getMessage());
+                    } else {
+                        System.out.println("Personal cadastrado com sucesso!");
+                    }
+
+                    Nome.setText("");
+                    cpf.setText("");
+                    Email.setText("");
+                    Senha.setText("");
+                    ConfirmaSenha.setText("");
+
+                    JOptionPane.showMessageDialog(null, "Personal cadastrado com sucesso!", "Cadastro Concluído", JOptionPane.INFORMATION_MESSAGE);
                 }
-                
-                Nome.setText("");
-                cpf.setText("");
-                Email.setText("");
-                Senha.setText("");
-                ConfirmaSenha.setText("");
-
-                JOptionPane.showMessageDialog(null, "Personal cadastrado com sucesso!", "Cadastro Concluído", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
-    } 
-
+            });
+        }
     }//GEN-LAST:event_Cadastrar_btnActionPerformed
 
     private void Cancelar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cancelar_btnActionPerformed
@@ -301,8 +297,8 @@ public class CadastroView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton Cadastrar_btn;
-    private javax.swing.JToggleButton Cancelar_btn;
+    private javax.swing.JButton Cadastrar_btn;
+    private javax.swing.JButton Cancelar_btn;
     private javax.swing.JPasswordField ConfirmaSenha;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Nome;
