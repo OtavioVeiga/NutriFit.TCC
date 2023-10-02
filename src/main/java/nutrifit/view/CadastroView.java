@@ -5,6 +5,10 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 
@@ -13,6 +17,26 @@ public class CadastroView extends javax.swing.JFrame {
     
     public CadastroView() {
         initComponents();
+        
+        cpf.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (!Character.isDigit(c)) {
+                    e.consume(); 
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                
+            }
+        });
         
     }
 
@@ -197,19 +221,26 @@ public class CadastroView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
      private boolean camposSaoValidos() {
+         
+         String email = Email.getText().trim();
+         if (email.isEmpty() || !validarEmail(email)) {
+             JOptionPane.showMessageDialog(this, "Por favor, insira um email válido.", "Email Inválido", JOptionPane.ERROR_MESSAGE);
+             return false;
+         }
+         
+         String cpfText = cpf.getText().trim().replaceAll("[.-]", "");
+         if (cpfText.isEmpty() || cpfText.length() != 11 || !CPFValido(cpfText)) {
+             JOptionPane.showMessageDialog(this, "Por favor, insira um CPF válido com 11 dígitos.", "CPF Inválido", JOptionPane.ERROR_MESSAGE);
+             return false;
+         }    
     
     if (Nome.getText().isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, preencha o campo Nome.", "Campo Nome Vazio", JOptionPane.ERROR_MESSAGE);
         return false;
     }
 
-    
-    String cpfText = cpf.getText().trim().replaceAll("[.-]", ""); 
-    if (cpfText.isEmpty() || cpfText.length() != 11) {
-        JOptionPane.showMessageDialog(this, "Por favor, insira um CPF válido com 11 dígitos.", "CPF Inválido", JOptionPane.ERROR_MESSAGE);
-        return false;
-    }
 
     
     String senhaText = new String(Senha.getPassword());
@@ -228,6 +259,51 @@ public class CadastroView extends javax.swing.JFrame {
     
     return true;
      }
+     
+     
+     private boolean CPFValido(String cpf) {
+        
+        if (cpf.length() != 11) {
+            return false;
+        }
+
+        
+        if (cpf.matches("(\\d)\\1{10}")) {
+            return false;
+        }
+
+        
+        int soma = 0;
+        for (int i = 0; i < 9; i++) {
+            soma += Character.getNumericValue(cpf.charAt(i)) * (10 - i);
+        }
+
+        int primeiroDigito = 11 - (soma % 11);
+        if (primeiroDigito >= 10) {
+            primeiroDigito = 0;
+        }
+
+        soma = 0;
+        for (int i = 0; i < 10; i++) {
+            soma += Character.getNumericValue(cpf.charAt(i)) * (11 - i);
+        }
+
+        int segundoDigito = 11 - (soma % 11);
+        if (segundoDigito >= 10) {
+            segundoDigito = 0;
+        }
+
+        
+        return Character.getNumericValue(cpf.charAt(9)) == primeiroDigito && Character.getNumericValue(cpf.charAt(10)) == segundoDigito;
+    }
+     
+     private boolean validarEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+     
     private void Cadastrar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar_btnActionPerformed
        
         if (camposSaoValidos()) {
