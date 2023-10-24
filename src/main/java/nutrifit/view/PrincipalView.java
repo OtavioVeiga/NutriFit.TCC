@@ -32,6 +32,11 @@ public class PrincipalView extends javax.swing.JFrame {
         GerarFciha_NU_btn.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
         GerarFciha_NU_btn.setText("Gerar ficha avaliativa");
         GerarFciha_NU_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        GerarFciha_NU_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GerarFciha_NU_btnActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -86,11 +91,16 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
 
         FichaAV_menu.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
-        FichaAV_menu.setText("Editar ficha avaliativa");
+        FichaAV_menu.setText("Ficha avaliativa");
+        FichaAV_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FichaAV_menuActionPerformed(evt);
+            }
+        });
         jMenu1.add(FichaAV_menu);
 
         FichaNu_menu.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
-        FichaNu_menu.setText("Editar ficha nutricional");
+        FichaNu_menu.setText("Ficha nutricional");
         jMenu1.add(FichaNu_menu);
 
         Sair_menu.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
@@ -117,6 +127,15 @@ public class PrincipalView extends javax.swing.JFrame {
     private void Sair_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Sair_menuActionPerformed
         this.dispose();
     }//GEN-LAST:event_Sair_menuActionPerformed
+
+    private void GerarFciha_NU_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GerarFciha_NU_btnActionPerformed
+        Ficha_avaliativa ficha = new Ficha_avaliativa();
+        ficha.setVisible(true);
+    }//GEN-LAST:event_GerarFciha_NU_btnActionPerformed
+
+    private void FichaAV_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FichaAV_menuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FichaAV_menuActionPerformed
 
     
     public static void main(String args[]) {

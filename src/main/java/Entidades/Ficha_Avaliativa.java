@@ -2,21 +2,42 @@ package Entidades;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Ficha_Avaliativa {
     private String id;
     private String alunoId;
     private String altura;
+    private String idade;
     private String peso;
     private String dataAvaliacao;
     private String dataReavaliacao;
+    private List<Exercicio> exercicios;
+
+    public List<Exercicio> getExercicios() {
+        return exercicios;
+    }
+
+    public void setExercicios(List<Exercicio> exercicios) {
+        this.exercicios = exercicios;
+    }
+    
+    public String getIdade() {
+        return idade;
+    }
+
+    public void setIdade(String idade) {
+        this.idade = idade;
+    }
     
     public Ficha_Avaliativa(){
         
     }
-
+    
+    
     public String getId() {
         return id;
     }
@@ -65,24 +86,45 @@ public class Ficha_Avaliativa {
         return dataReavaliacao;
     }
 
+    public void setExercicio(List<Exercicio> exercicio) {
+        this.exercicios = exercicio;
+    }
+
+    public void addExercicio(Exercicio exercicio) {
+        exercicios.add(exercicio);
+    }
+
     public void salvar() {
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference fichaRef = database.getReference("fichas_avaliativas").child(id);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference fichaRef = database.getReference("fichas_avaliativas").child(id);
 
-    Map<String, Object> fichaValues = new HashMap<>();
-    fichaValues.put("id", id);
-    fichaValues.put("alunoId", alunoId);
-    fichaValues.put("altura", altura);
-    fichaValues.put("peso", peso);
-    fichaValues.put("data_avaliacao", dataAvaliacao);
-    fichaValues.put("data_reavaliacao", dataReavaliacao);
+        // Mapeie os dados da ficha avaliativa
+        Map<String, Object> fichaValues = new HashMap<>();
+        fichaValues.put("id", id);
+        fichaValues.put("alunoId", alunoId);
+        fichaValues.put("altura", altura);
+        fichaValues.put("idade", idade);
+        fichaValues.put("peso", peso);
+        fichaValues.put("data_avaliacao", dataAvaliacao);
+        fichaValues.put("data_reavaliacao", dataReavaliacao);
 
-    fichaRef.setValue(fichaValues, (databaseError, databaseReference) -> {
-        if (databaseError != null) {
-            System.err.println("Erro ao salvar ficha avaliativa: " + databaseError.getMessage());
-        } else {
-            System.out.println("Ficha avaliativa salva com sucesso!");
+        // Mapeie a lista de exercícios
+        List<Map<String, Object>> exerciciosMapList = new ArrayList<>();
+        for (Exercicio exercicio : exercicios) {
+            Map<String, Object> exercicioMap = new HashMap<>();
+            exercicioMap.put("musculo", exercicio.getMusculo());
+            exercicioMap.put("nivel", exercicio.getNivel());
+            exercicioMap.put("nome", exercicio.getNome());
+            exerciciosMapList.add(exercicioMap);
         }
-    });
-}
+        fichaValues.put("exercicios", exerciciosMapList);
+
+        fichaRef.setValue(fichaValues, (databaseError, databaseReference) -> {
+            if (databaseError != null) {
+                System.err.println("Erro ao salvar ficha avaliativa: " + databaseError.getMessage());
+            } else {
+                System.out.println("Ficha avaliativa salva com sucesso!");
+            }
+        });
+    }
 }

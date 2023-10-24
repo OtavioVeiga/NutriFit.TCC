@@ -27,84 +27,40 @@ public class Ficha_Nutricional extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
+        naoGera_btn = new javax.swing.JButton();
+        Gera_btn = new javax.swing.JButton();
+        Peso = new javax.swing.JTextField();
+        Altura = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 36)); // NOI18N
-        jLabel1.setText("Ficha Avaliativa");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        jLabel1.setText("Ficha Nutricional");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
-        jRadioButton3.setText("Sim");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 98, -1));
+        naoGera_btn.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        naoGera_btn.setText("Cancelar");
+        getContentPane().add(naoGera_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 180, 40));
 
-        jRadioButton7.setText("Não");
-        getContentPane().add(jRadioButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 98, -1));
+        Gera_btn.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        Gera_btn.setText("Gerar ficha");
+        getContentPane().add(Gera_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 180, 40));
+        getContentPane().add(Peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 190, 30));
+        getContentPane().add(Altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 190, 30));
 
-        jRadioButton4.setText("Sim");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 98, -1));
+        jLabel3.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        jLabel3.setText("Peso");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
-        jRadioButton8.setText("Não");
-        getContentPane().add(jRadioButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 98, -1));
-
-        jRadioButton5.setText("Sim");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 98, -1));
-
-        jRadioButton9.setText("Não");
-        getContentPane().add(jRadioButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 98, -1));
-
-        jRadioButton6.setText("Sim");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 98, -1));
-
-        jRadioButton10.setText("Não");
-        getContentPane().add(jRadioButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 98, -1));
+        jLabel4.setFont(new java.awt.Font("Microsoft YaHei", 1, 14)); // NOI18N
+        jLabel4.setText("Altura");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
-
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,14 +98,12 @@ public class Ficha_Nutricional extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Altura;
+    private javax.swing.JButton Gera_btn;
+    private javax.swing.JTextField Peso;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton naoGera_btn;
     // End of variables declaration//GEN-END:variables
 }
